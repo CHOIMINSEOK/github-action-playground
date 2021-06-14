@@ -35,7 +35,7 @@ jobs:
       - name: dump github
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+        run: echo ${{github.event.pull_request.milestone}}
       - name: milestone check
         if: ${{github.event.pull_request.milestone}} == null
         uses: actions/github-script@v3
