@@ -33,7 +33,7 @@ jobs:
           result-encoding: string
 
       - name: milestone check
-        if: ${{github.event.milestone}} == null
+        if: ${{github.event.pull_request.milestone}} == null
         uses: actions/github-script@v3
         with:
           script: |
