@@ -9,12 +9,6 @@ on:
   pull_request_review:
     types:
       - submitted
-  workflow_run:
-    branches-ignore:
-      - develop # default branch
-      - master  # protected branch for Git-Flow
-    types:
-      - completed
 
 #jobs:
 #  triage:
