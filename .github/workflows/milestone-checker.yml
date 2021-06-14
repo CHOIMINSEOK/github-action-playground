@@ -9,9 +9,6 @@ on:
     types:
       - submitted
   workflow_run:
-    workflows: # required checks
-      - continuous-integration
-      - on-label-update
     branches-ignore:
       - develop # default branch
       - master  # protected branch for Git-Flow
