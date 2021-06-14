@@ -5,6 +5,7 @@ on:
     types:
       - ready_for_review
       - synchronize
+      - edited
   pull_request_review:
     types:
       - submitted
