@@ -37,7 +37,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "milestone ${{github.event.pull_request.milestone}}"
       - name: milestone check
-        if: ${{github.event.pull_request.milestone}} == null
+        if: github.event.pull_request.milestone == null
         uses: actions/github-script@v3
         with:
           script: |
