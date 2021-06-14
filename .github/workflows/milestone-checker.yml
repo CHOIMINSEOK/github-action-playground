@@ -38,11 +38,11 @@ jobs:
             }
           result-encoding: string
 
-      - name: milestone check
-        if: ${{github.event.milestone}} == null
-        uses: actions/github-script@v3
-        with:
-          script: |
-            core.setFailed('마일스톤 입력은 필수입니다')
+#      - name: milestone check
+#        if: ${{github.event.milestone}} == null
+#        uses: actions/github-script@v3
+#        with:
+#          script: |
+#            core.setFailed('마일스톤 입력은 필수입니다')
 
 
