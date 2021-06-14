@@ -32,11 +32,12 @@ jobs:
             }
           result-encoding: string
 
-      - name: milestone check
-        if: ${{github.event.pull_request.milestone}} == null
+      - name: dump github
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+          run: echo "$GITHUB_CONTEXT"
+      - name: milestone check
+        if: ${{github.event.pull_request.milestone}} == null
         uses: actions/github-script@v3
         with:
           script: |
