@@ -39,8 +39,6 @@ jobs:
         run: echo "milestone ${{toJSON(github.event.pull_request.milestone)}}"
       - name: milestone check
         if: github.event.pull_request.milestone == null
-        env:
-          PULL_NUMBER: ${{github.event.pull_request.number}}
         uses: actions/github-script@v4
         with:
           script: |
@@ -48,8 +46,8 @@ jobs:
 
             console.log(`owner: ${context.repo.owner}, repo: ${context.repo.repo}`)
 
-            github.pulls.createReviewComment({
-              pull_number: PULL_NUMBER,
+            github.issues.createComment({
+              issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: '마일스톤 입력은 필수입니다'
