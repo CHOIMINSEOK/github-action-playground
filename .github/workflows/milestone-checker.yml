@@ -44,8 +44,10 @@ jobs:
         uses: actions/github-script@v3
         with:
           script: |
+            const { PULL_NUMBER } = process.env
+
             github.pulls.createReviewComment({
-              pull_number: $PULL_NUMBER,
+              pull_number: PULL_NUMBER,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: '마일스톤 입력은 필수입니다'
