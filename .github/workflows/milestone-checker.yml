@@ -40,7 +40,7 @@ jobs:
       - name: milestone check
         if: github.event.pull_request.milestone == null
         env:
-          PULL_NUMBER: '${{github.event.pull_request.number}}'
+          PULL_NUMBER: ${{github.event.pull_request.number}}
         uses: actions/github-script@v3
         with:
           script: |
