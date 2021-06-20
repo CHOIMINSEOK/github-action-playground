@@ -3,6 +3,7 @@ name: ready-to-merge
 on:
   pull_request:
     types:
+      - open
       - ready_for_review
       - synchronize
       - edited
@@ -38,9 +39,18 @@ jobs:
         run: echo "milestone ${{toJSON(github.event.pull_request.milestone)}}"
       - name: milestone check
         if: github.event.pull_request.milestone == null
-        uses: actions/github-script@v3
+        uses: actions/github-script@v4
         with:
           script: |
-            core.setFailed('마일스톤 입력은 필수입니다')
+            const { PULL_NUMBER } = process.env
+
+            console.log(`owner: ${context.repo.owner}, repo: ${context.repo.repo}`)
+
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '마일스톤 입력은 필수입니다'
+            })
 
 
