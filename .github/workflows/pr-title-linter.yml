@@ -1,0 +1,35 @@
+name: ready-to-merge
+
+on:
+  pull_request:
+    types:
+      - open
+      - ready_for_review
+      - synchronize
+      - edited
+
+jobs:
+  pr-title-lint:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: pr title lint
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const titleRegex = new RegExp('^\[[A-Z]{1}[A-Z0-9]{1,9}\-\d+\]\ [^\ ].*$');
+            const titleMatchesRegex = titleRegex.test(title);
+
+            const title = github.context.payload.pull_request?.title as string;
+
+            if(!titleMatchesRegex) {
+                github.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: 'PR Title 형식은 다음과 같이 맞춰주세요: [TIRKET-123] PR TITLE '
+                })
+            }
+
+
+
+
