@@ -17,7 +17,7 @@ jobs:
         with:
           script: |
             const titleRegex = new RegExp('^\[[A-Z]{1}[A-Z0-9]{1,9}\-\d+\]\ [^\ ].*$');
-            const title = github.context.payload.pull_request.title;
+            const title = github.event.pull_request.title;
 
             const titleMatchesRegex = titleRegex.test(title);
 
