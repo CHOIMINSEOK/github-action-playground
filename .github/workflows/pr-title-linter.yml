@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: pr title lint
+        if: contains(github.head_ref, 'feature/') || contains(github.head_ref, 'feature-base/')
         uses: actions/github-script@v4
         with:
           script: |
