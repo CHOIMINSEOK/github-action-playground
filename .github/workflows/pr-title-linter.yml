@@ -1,16 +1,14 @@
 name: ready-to-merge
 
 on:
-  push:
-    branches:
-      - 'feature-base/*'
-      - 'feature/*'
   pull_request:
     types:
       - opened
       - ready_for_review
       - synchronize
       - edited
+    branches:
+      - 'develop'
 
 jobs:
   pr-title-lint:
