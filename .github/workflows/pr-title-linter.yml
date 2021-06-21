@@ -16,11 +16,11 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
-            const titleRegex = new RegExp('^\[[A-Z]{1}[A-Z0-9]{1,9}\-\d+\]\ [^\ ].*$');
+            const titleRegex = /^\[[A-Z]{1}[A-Z0-9]{1,9}\-\d+\]\ [^\ ].*$/i
             const title = context.payload.pull_request.title;
 
-            const titleMatchesRegex = titleRegex.test(title);
 
+            const titleMatchesRegex = titleRegex.test(title);
 
             if(!titleMatchesRegex) {
                 github.issues.createComment({
