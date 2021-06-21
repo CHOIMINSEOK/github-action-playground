@@ -2,6 +2,8 @@ name: Some File Checklist
 
 on:
   pull_request:
+    types:
+      - opened
     paths:
       - 'files/**'
 
