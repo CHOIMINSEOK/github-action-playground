@@ -9,9 +9,6 @@ on:
       - edited
     branches:
       - 'develop'
-    branches-ignore:
-      - 'release/*'
-      - 'hotfix/*'
 
 jobs:
   pr-title-lint:
