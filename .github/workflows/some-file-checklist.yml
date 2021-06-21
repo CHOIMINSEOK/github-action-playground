@@ -28,6 +28,7 @@ jobs:
           script: |
 
             const body = `
+            ### CheckList
               - [ ] idl을 업데이트하시는 분께서는 각 플랫폼별로 담당자를 아래 항목에 멘션해주세요.
                 - [ ] web {작업자} {작업한 PR 링크}
                 - [ ] iOS  {작업자} {작업한 PR 링크}
