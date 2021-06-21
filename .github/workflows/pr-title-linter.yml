@@ -11,6 +11,9 @@ on:
       - 'feature-base/*'
       - 'feature/*'
 
+    branches-ignore:
+      - 'feature/*'
+
 jobs:
   pr-title-lint:
     runs-on: ubuntu-18.04
