@@ -7,6 +7,9 @@ on:
       - ready_for_review
       - synchronize
       - edited
+    branches:
+      - 'feature-base/*'
+      - 'feature/*'
 
 jobs:
   pr-title-lint:
