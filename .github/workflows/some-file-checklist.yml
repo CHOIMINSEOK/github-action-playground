@@ -1,0 +1,23 @@
+name: Some File Checklist
+
+on:
+  pull_request:
+    paths:
+      - 'files/**'
+
+
+jobs:
+  file-checklist:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Add Label
+        uses: actions/github-script@v4
+        with:
+          script: |
+            github.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['CheckList']
+            })
+
