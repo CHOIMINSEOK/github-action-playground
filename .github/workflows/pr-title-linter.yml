@@ -8,11 +8,10 @@ on:
       - synchronize
       - edited
     branches:
-      - 'feature-base/*'
-      - 'feature/*'
-
+      - 'develop'
     branches-ignore:
-      - 'feature/*'
+      - 'release/*'
+      - 'hotfix/*'
 
 jobs:
   pr-title-lint:
