@@ -7,8 +7,6 @@ on:
       - ready_for_review
       - synchronize
       - edited
-    branches:
-      - 'develop'
 
 jobs:
   pr-title-lint:
